@@ -1,16 +1,3 @@
-/**
- * Extract ICD-10-CM mappings from CCC v3 supplement Excel files.
- * 
- * Primary source: files/zoi240662supp2_prod_*.xlsx (eTable2)
- *   - Contains ALL codes in a flat table with columns:
- *     ICD_Code, DX_PR, CCC_Category, ICD9_ICD10, Tech_Dep, Transplant
- *   - We filter ICD-10 only (ICD9_ICD10 = 10)
- *   - Separate DX codes → dx_map.json
- *   - PX codes with Tech_Dep=1 or Transplant=1 → px_map.json
- * 
- * Run: node scripts/extract-mappings.js
- */
-
 import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
@@ -22,7 +9,6 @@ const ROOT = join(__dirname, '..');
 const FILES_DIR = join(ROOT, 'files');
 const DATA_DIR = join(ROOT, 'src', 'data');
 
-// Map Excel CCC_Category values to our standard flag names
 const CATEGORY_MAP = {
     'neuro_neuromusc': 'neuromusc',
     'neuro': 'neuromusc',
@@ -48,9 +34,6 @@ const CATEGORY_MAP = {
     'premature_neonatal': 'neonatal',
 };
 
-/**
- * Normalize an ICD code: strip dots, dashes, whitespace; uppercase; toString
- */
 function normalizeCode(code) {
     if (code === null || code === undefined) return null;
     const str = String(code).replace(/[.\-\s]/g, '').toUpperCase().trim();
