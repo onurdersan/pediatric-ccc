@@ -40,9 +40,6 @@ function normalizeCode(code) {
     return str.length >= 2 ? str : null;
 }
 
-/**
- * Resolve a category string from the Excel to our flag name
- */
 function resolveCategory(raw) {
     if (!raw) return null;
     const key = raw.toString().toLowerCase().trim().replace(/[\s\/]+/g, '_');
