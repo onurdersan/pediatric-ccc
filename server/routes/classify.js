@@ -1,9 +1,4 @@
-/**
- * POST /api/classify — Single-patient classification
- * 
- * Accepts JSON body: { dx_codes: string[], px_codes: string[] }
- * Returns classification result with 20 flags + ccc_flag + num_categories
- */
+
 
 import { Router } from 'express';
 import { classify } from '../../src/engine/classifier.js';
