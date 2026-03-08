@@ -1,10 +1,4 @@
-/**
- * Express API Server — Pediatric CCC v3
- * 
- * Stateless server with zero PHI persistence.
- * Loads static JSON mappings at startup (read-only).
- * Two endpoints: single classify + batch CSV.
- */
+
 
 import express from 'express';
 import cors from 'cors';
