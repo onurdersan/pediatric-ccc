@@ -49,7 +49,7 @@ A privacy-first web application that classifies ICD-10-CM diagnosis and procedur
 
 ```bash
 # Clone the repository
-git clone https://github.com/onurdersan/pediatric-ccc-v3.git
+git clone https://github.com/onurdersan/pediatric-ccc.git
 cd pediatric-ccc-v3
 
 # Install dependencies
